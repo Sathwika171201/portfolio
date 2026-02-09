@@ -1,0 +1,190 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+/* Hide radio buttons */
+input[type="radio"] {
+  display: none;
+}
+
+/* Page background */
+.page {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
+    url("bg-default.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition: background 0.5s ease;
+  color: #222;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 50px;
+
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
+  border-radius: 0 0 12px 12px;
+}
+
+/* Name */
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Navigation */
+nav label {
+  margin-left: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+}
+
+nav label::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #222;
+  left: 0;
+  bottom: -6px;
+  transition: 0.3s;
+}
+
+nav label:hover::after {
+  width: 100%;
+}
+
+/* Main */
+main {
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 40px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
+/* Sections hidden by default */
+.content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.5s ease;
+}
+
+/* Show sections */
+#about:checked ~ .page .about,
+#education:checked ~ .page .education,
+#projects:checked ~ .page .projects,
+#contact:checked ~ .page .contact {
+  max-height: 600px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Text */
+.content h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.content p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Links */
+.content a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.content a:hover {
+  text-decoration: underline;
+}
+
+/* Background change */
+#about:checked ~ .page {
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("bg-about.jpg");
+}
+
+#education:checked ~ .page {
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("bg-education.jpg");
+}
+
+#projects:checked ~ .page {
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("bg-projects.jpg");
+}
+
+#contact:checked ~ .page {
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("bg-contact.jpg");
+}
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav label {
+    margin: 0 12px;
+  }
+
+  main {
+    margin-top: 40px;
+  }
+}
+#about:checked ~ .page {
+  background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("bg-about.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#education:checked ~ .page {
+  background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("bg-education.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#projects:checked ~ .page {
+  background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("bg-project.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#contact:checked ~ .page {
+  background:
+  linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("bg-contact.jpg");
+  background-size: cover;
+  background-position: center;
+}
